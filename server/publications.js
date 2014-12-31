@@ -1,5 +1,14 @@
-Meteor.publish('cursor_posts', function () {
-    return Posts.find();
+Meteor.publish('cursor_posts', function (options) {
+    check(options, {
+        sort: Object,
+        limit: Number
+    });
+    return Posts.find({}, options);
+});
+
+Meteor.publish('singlePost', function(id) {
+    check(id, String);
+    return Posts.find(id);
 });
 
 Meteor.publish('cursor_comments', function(postId) {
