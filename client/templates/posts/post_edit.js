@@ -50,7 +50,7 @@ Template.postEdit.events ({
                 if (error) {
                     alert(error.reason);
                 } else {
-                    Router.go('postsList');
+                    Router.go('home');
                 }
             });
         }
